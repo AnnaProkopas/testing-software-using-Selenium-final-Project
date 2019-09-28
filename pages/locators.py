@@ -18,3 +18,4 @@ class ProductPageLocators():
     PRODUCT_NAME_IN_BUSKET = (By.CSS_SELECTOR, ".alertinner strong")
     MINI_BASKET = (By.CLASS_NAME, "basket-mini")
     PRODUCT_COST = (By.CSS_SELECTOR, ".product_main .price_color")
+    SUCCESS_MESSAGE = (By.CLASS_NAME, "alertinner")
