@@ -38,10 +38,8 @@ class ProductPage(BasePage):
             "The product cost and the value of the basket do not match"
 
     def add_product_to_busket(self):
-        #self.should_not_be_success_message()
         self.should_be_add_product_to_busket_btn()
         self.browser.find_element(*ProductPageLocators.ADD_TO_BASCKET_BTN).click()
-        #self.solve_quiz_and_get_code()
         self.should_be_product_name()
         self.should_be_messange()
         self.should_be_product_cost()
