@@ -63,7 +63,7 @@ def test_guest_cant_see_product_in_basket_opened_from_product_page(browser):
 class TestUserAddToBasketFromProductPage:
     link = "http://selenium1py.pythonanywhere.com/en-gb/catalogue/the-city-and-the-stars_95/"
 
-    @pytest.fixture
+    @pytest.fixture(autouse=True)
     def setup(browser):
         page = BasePage(browser, url=self.link)
         page.go_to_login_page()
