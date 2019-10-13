@@ -22,8 +22,8 @@ class LoginPage(BasePage):
             and self.browser.find_element(*LoginPageLocators.REG_PASS2_FORM), \
             "Form of register don't exist"
 
-    def register_new_user(email, password):
+    def register_new_user(self, email, password):
         self.browser.find_element(*LoginPageLocators.REG_EMAIL_FORM).send_keys(email)
         self.browser.find_element(*LoginPageLocators.REG_PASS1_FORM).send_keys(password)
         self.browser.find_element(*LoginPageLocators.REG_PASS2_FORM).send_keys(password)
-        self.browser.find_element(*LoginPageLocators.REG_BTN).ckick()
+        self.browser.find_element(*LoginPageLocators.REG_BTN).click()
