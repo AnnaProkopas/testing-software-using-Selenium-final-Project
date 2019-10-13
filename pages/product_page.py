@@ -30,6 +30,9 @@ class ProductPage(BasePage):
             "The product cost not found "
 
     def should_be_this_product_in_busket(self):
+        self.should_be_product_name()
+        self.should_be_messange()
+        self.should_be_product_cost()
         assert self.browser.find_element(*ProductPageLocators.PRODUCT_NAME).text == \
             self.browser.find_element(*ProductPageLocators.PRODUCT_NAME_IN_BUSKET).text, \
             "The product is in the message and this product does not match"
@@ -40,9 +43,6 @@ class ProductPage(BasePage):
     def add_product_to_busket(self):
         self.should_be_add_product_to_busket_btn()
         self.browser.find_element(*ProductPageLocators.ADD_TO_BASCKET_BTN).click()
-        self.should_be_product_name()
-        self.should_be_messange()
-        self.should_be_product_cost()
         self.should_be_this_product_in_busket()
 
     def solve_quiz_and_get_code(self):
@@ -51,12 +51,9 @@ class ProductPage(BasePage):
         answer = str(math.log(abs((12 * math.sin(float(x))))))
         alert.send_keys(answer)
         alert.accept()
-        """
-        try:
-            alert = self.browser.switch_to.alert
-            alert_text = alert.text
-            print(f"Your code: {alert_text}")
-            alert.accept()
-        except NoAlertPresentException:
-            print("No second alert presented")
-            """
+    
+    def add_product_to_busket_with_code(self):
+        self.should_be_add_product_to_busket_btn()
+        self.browser.find_element(*ProductPageLocators.ADD_TO_BASCKET_BTN).click()
+        self.solve_quiz_and_get_code()
+        self.should_be_this_product_in_busket()
