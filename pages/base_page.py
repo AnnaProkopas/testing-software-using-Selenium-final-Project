@@ -8,6 +8,7 @@ from .locators import BasePageLocators
 
 
 class BasePage():
+    
     browser: webdriver
     url: str
     def __init__(self, browser: webdriver, url: str, timeout:int=10):
